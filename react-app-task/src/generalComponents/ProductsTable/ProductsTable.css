@@ -1,0 +1,23 @@
+  .grid-container {
+    --contentLeft: 101.25px;
+    position: relative;
+    top: 155.6px;
+    left: var(--contentLeft);
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: calc(100% - var(--contentLeft));
+
+    padding: 15.3px 0px 191px 0px;
+    margin: 0px;
+
+    display: grid;
+    align-content: center;
+    grid-template-columns: 386px 386px 386px;
+    grid-gap: 10px;
+  }
+  
+  .grid-container > div {
+    width: 386px;
+    height: 444px;
+  }

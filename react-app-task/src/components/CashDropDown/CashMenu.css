@@ -1,0 +1,43 @@
+.cashMenu {
+    position: fixed;
+    width: 114px;
+    right: 78px;
+    top: 65px;
+
+    padding: 20px 0px 0px 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #FFFFFF;
+}
+
+.cashMenu label {
+    position: relative;
+    left: 20px;
+
+    width: 54px;
+    height: 29px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    text-align: left;
+
+    color: #1D1F22;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+}
+
+.cashMenu label:hover {
+    cursor: pointer;
+}
+

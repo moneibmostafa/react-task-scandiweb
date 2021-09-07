@@ -1,0 +1,199 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway); 
+
+.dropdown-content {
+    position: absolute;
+    width: 114px;
+    min-height: 169px;
+    right: 0px;
+    top: 40px;
+    
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+  
+    display: none;
+    z-index: 1;
+}
+
+.cartMenu {
+    position: fixed;
+    width: 325px;
+    right: 97px;
+    top: 78px;
+
+    max-height: 540px;
+    min-height: 335px;
+    overflow-y: scroll;
+    background: #FFFFFF;
+}
+
+.cartMenu .myBag {
+    position: relative;
+    width: 118px;
+    height: 26px;
+
+    top: 8px;
+    left: 16px;
+
+    margin: 0px;
+    padding: 0px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 160%;
+
+    color: #1D1F22;
+}
+
+.cartMenu .listOfItems {
+    position: relative;
+    width: calc(100% - 32px);
+    min-height: 137px;
+    right: 16px;
+    left: 16px;
+    top: 25px;
+    bottom: 169px;
+    
+    margin: 0px;
+    padding: 0px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.cartMenu .totalPriceBlock {
+    position: relative;
+    width: 289px;
+    height: 28px;
+
+    bottom: 98px;
+    left: 16px;
+    right: 20px;
+    top: 32px;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+.cartMenu .totalPriceBlock .total {
+    position: relative;
+    width: 55px;
+    height: 19px;
+    top: 9px;
+    left: 0px;
+    bottom: 0px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+
+    text-align: left;
+
+    padding: 0px;
+    margin: 0px;
+
+    color: #1D1F22;
+}
+
+.cartMenu .totalPriceBlock .totalPrice {
+    position: relative;
+    width: 95px;
+    height: 26px;
+    left: 190px;
+    right: 0px;
+    top: 0px;
+    bottom: 2px;
+
+    margin: 0px;
+    padding: 0px;
+    
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 160%;
+    
+    text-align: right;
+    
+    color: #1D1F22;
+}
+
+.cartMenu .footer {
+    position: relative;
+    left: 13px;
+    right: 20px;
+    height: 43px;
+    width: 292;
+    top: 80px;
+
+    /* Auto Layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 0px 20px 0px ;   
+    margin: 0px; 
+}
+
+.cartMenu .footer button {
+    border: 1px solid #1D1F22;
+    background: #FFFFFF;
+
+    position: relative;
+    top: 0px;
+    width: 140px;
+    height: 43px;
+    margin: 0px 12px 0px 0px;
+
+    /* Auto Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 16px 32px;
+
+    box-sizing: border-box;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.cartMenu .footer button label {
+    position: relative;
+    width: 68px;
+    height: 17px;
+    left: calc(50% - 68px/2);
+    top: calc(50% - 17px/2);
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1D1F22;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.cartMenu .footer button:hover {
+    cursor: pointer;
+}
