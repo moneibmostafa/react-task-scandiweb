@@ -1,0 +1,89 @@
+.cartVarsMenu {
+    position: relative;
+    height: 100%;
+    width: 140px;
+
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.cartVarsMenu .plusSign {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+
+    left: 0px;
+    top: 0px;
+
+    text-align: center;
+
+    border: 1px solid #1D1F22;
+    box-sizing: border-box;
+}
+
+.cartVarsMenu .plusSign:hover {
+    cursor: pointer;
+}
+
+.cartVarsMenu .negSign {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+
+    left: 0px;
+    bottom: 0px;
+
+    text-align: center;
+
+    border: 1px solid #1D1F22;
+    box-sizing: border-box;
+}
+
+.cartVarsMenu .negSign:hover {
+    cursor: pointer;
+}
+
+.cartVarsMenu .count {
+    position: absolute;
+    left: 8px;
+    right: 123px;
+    top: 54px;
+    bottom: 57px;
+
+    width: 9px;
+    height: 26px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+
+    margin: 0px;
+    padding: 0px;
+
+    text-align: center;
+
+    color: #1D1F22;
+}
+
+.cartVarsMenu .mainImage {
+    position: absolute;
+    width: 105px;
+    height: 137px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartVarsMenu .mainImage img {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}

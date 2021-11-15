@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto); 
+
+.cartIcon {
+    position: absolute;
+    right: 0px;
+    top: calc(50% - 20px/2);    
+    width: 20px;
+    height: 20px;
+    margin-left: 22px;
+    border-style: none;
+}
+
+.cartIcon img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 100%;
+    max-height: 100%;
+    border-style: none;
+    background: #FFFFFF;
+}
+
+.cartIcon img:hover {
+    cursor: pointer;
+}
+
+.cartIcon .cartBadge {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    right: -12px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    border-radius: 60px;
+    background: #1D1F22;    
+    color: white;
+}
+
+.cartIcon .cartBadge:hover {
+    cursor: pointer;
+}
+
+.cartIcon .cartBadge label {
+    position: relative;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    
+    display: inline-block; 
+
+    color: #FFFFFF;
+}
+
+.cartIcon .cartBadge label:hover {
+    cursor: pointer;
+}

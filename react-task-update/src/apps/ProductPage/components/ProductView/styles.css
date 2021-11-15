@@ -1,0 +1,267 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway); 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed); 
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro); 
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.productView {
+    position: relative;
+    height: auto;
+    width: 1221px;
+    top: 82px;
+    left: 123px;
+    right: 0px;
+    bottom: 0px;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.productView .mainImage {
+    position: relative;
+    width: 610px;
+    height: 511px;
+    left: 0px;
+    top: 0px;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productView .mainImage img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.productView .info {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 100px;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.productView .info .brand {
+    position: relative;
+    width: 292px;
+    height: 27px;
+    left: 0px;
+    top: 0px;
+
+    padding: 0px;
+    margin: 0px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.productView .info .name {
+    position: relative;
+    width: 292px;
+    height: 27px;
+    left: 0px;
+    top: 16px;
+
+    padding: 0px;
+    margin: 0px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 27px;
+
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.productView .info .attributeName {
+    position: relative;
+    width: 38px;
+    height: 18px;
+    left: 0px;
+    top: 59px;
+
+    margin: 0px;
+    padding: 0px;
+    
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+
+    text-transform: uppercase; 
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #1D1F22;
+}
+
+.productView .info .attributesBox {
+    position: relative;
+    height: 45px;
+    width: auto;
+    top: 67px;
+
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.productView .info .attributesBox .attribute {
+    position: relative;
+    min-width: 63px;
+    height: 45px;
+    top: 0px;
+    bottom: 0px;
+
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+    justify-content: center;
+
+    margin: 0px 12px 0px 0px;
+    padding: 0px;
+
+    border: 1px solid #1D1F22;
+    box-sizing: border-box;
+}
+
+.productView .info .attributesBox .selectedAttribute {
+    background: #1D1F22;
+    color: #FFFFFF;
+}
+
+.productView .info .attributesBox div:hover {
+    cursor: pointer;
+}
+
+.productView .info .priceTag {
+    position: relative;
+    width: 50px;
+    height: 18px;
+    left: 0px;
+    top: 107px;
+
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+
+    text-transform: uppercase; 
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #1D1F22;
+}
+
+.productView .info .price {
+    position: relative;
+    width: 86px;
+    height: 46px;
+    left: 0px;
+    top: 117px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.productView .info .addToCart {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content: center;
+    color: #FFFFFF;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+
+    padding: 0px;
+    margin: 0px;
+    
+    position: relative;
+    width: 292px;
+    height: 52px;
+    left: 0px;
+    top: 137px;
+    
+    background: #5ECE7B;
+    border: 0px;
+}
+
+.productView .info .addToCart:hover {
+    cursor: not-allowed;
+}
+
+.productView .info .active:hover {
+    cursor: pointer;
+}
+
+.productView .info .description {
+    position: relative;
+    width: 292px;
+    height: auto;
+    left: 0px;
+    top: 177px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 159.96%;
+
+    color: #1D1F22;
+}

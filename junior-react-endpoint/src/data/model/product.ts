@@ -13,6 +13,7 @@ class Product {
     protected attributes: AttributeSet[] = [];
     protected inStock: boolean = true;
     protected brand: string;
+    protected id: string;
 
     constructor(
         protected name: string
@@ -24,15 +25,23 @@ class Product {
         return this;
     }
 
+    getId = () => this.id;
+
     getCategory = () => this.category;
 
     setPrice(amountEUR: number) {
         converter.availableCurrencies.forEach((currencyCode) => {
             this.addPrice(new Price(
-                currencyCode, 
+                currencyCode,
                 roundToTwoDecimals(converter.convertFromEUR(amountEUR, currencyCode))
             ))
         });
+
+        return this;
+    }
+
+    setId(id: string) {
+        this.id = id;
 
         return this;
     }

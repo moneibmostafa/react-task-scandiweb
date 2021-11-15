@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway); 
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+.cartInfoCartPage {
+    position: relative;
+    height: 100%;
+    width: 292px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cartInfoCartPage .brand {
+    position: relative;
+    width: 100%;
+    height: 27px;
+    left: 0px;
+    top: 20px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.cartInfoCartPage .name {
+    position: relatIve;
+    width: 100%;
+    height: 27px;
+    left: 0px;
+    top: 36px;
+    
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 27px;
+    
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}
+
+.cartInfoCartPage .price {
+    position: relatIve;
+    width: 100%;
+    height: 46px;
+    left: 0px;
+    top: 47px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0px;
+    padding: 0px;
+
+    color: #1D1F22;
+}
+
+.cartInfoCartPage .attributesList {
+    position: relatIve;
+    width: 100%;
+    height: 45px;
+    
+    top: 58px;
+    left: 0px;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.cartInfoCartPage .attributesList .attribute {
+    position: relative;
+    min-width: 63px;
+    height: 45px;
+
+    padding: 0px;
+    margin: 0px 12px 0px 0px;
+
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: #1D1F22;
+    background: #FFFFFF;
+    border: 1px solid #1D1F22;
+}
+
+.cartInfoCartPage .attributesList .selectedAttribute {
+    color: #FFFFFF;
+    background: #1D1F22;
+    border: 1px solid #1D1F22;
+}

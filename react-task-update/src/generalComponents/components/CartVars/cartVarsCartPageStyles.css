@@ -1,0 +1,141 @@
+.cartVarsCartPage {
+    position: relative;
+    height: 100%;
+    width: 198px;
+
+    top: 0px;
+    right: 0;
+    bottom: 0px;
+    margin-left: auto;
+}
+
+.cartVarsCartPage .plusSign {
+    position: relative;
+    width: 45px;
+    height: 45px;
+
+    left: 0px;
+    top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border: 1px solid #1D1F22;
+    box-sizing: border-box;
+}
+
+.cartVarsCartPage .plusSign:hover {
+    cursor: pointer;
+}
+
+.cartVarsCartPage .negSign {
+    position: relative;
+    width: 45px;
+    height: 45px;
+
+    top: 114px;
+    left: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border: 1px solid #1D1F22;
+    box-sizing: border-box;
+}
+
+.cartVarsCartPage .negSign:hover {
+    cursor: pointer;
+}
+
+.cartVarsCartPage .count {
+    position: relative;
+    left: 16px;
+    right: 123px;
+    top: 0px;
+
+    width: 10px;
+    height: 34px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #1D1F22;
+}
+
+.cartVarsCartPage .mainImage {
+    position: absolute;
+    width: 141px;
+    height: 185px;
+    right: 0px;
+    top: 20px;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartVarsCartPage .mainImage img {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cartVarsCartPage .mainImage .imgLeftArrow {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 0px;
+    top: 80px;
+    bottom: 81px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    z-index: 100;
+}
+
+.cartVarsCartPage .mainImage .imgLeftArrow:hover {
+    cursor: pointer;
+}
+
+.cartVarsCartPage .mainImage .imgRightArrow {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 0px;
+    top: 80px;
+    bottom: 81px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    z-index: 100;
+}
+
+.cartVarsCartPage .mainImage .imgRightArrow:hover {
+    cursor: pointer;
+}

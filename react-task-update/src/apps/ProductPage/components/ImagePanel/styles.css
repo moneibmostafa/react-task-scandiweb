@@ -1,0 +1,26 @@
+.imagesPanel {
+    position: relative;
+    width: 79px;
+    top: 80px;
+    left: 96.71px;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.imagesPanel img {
+    position: relative;
+    max-width: 79px;
+    max-height: 80px;
+    object-fit: contain;
+    margin: 0px 0px 40px 0px;
+    padding: 0px;
+}
+
+.imagesPanel img:hover {
+    cursor: pointer;
+}
