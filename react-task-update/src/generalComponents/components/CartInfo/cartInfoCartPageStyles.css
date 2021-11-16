@@ -4,7 +4,8 @@
 .cartInfoCartPage {
     position: relative;
     height: 100%;
-    width: 292px;
+    min-width: 292px;
+    width: auto;
 
     display: flex;
     flex-direction: column;
@@ -74,7 +75,8 @@
 
 .cartInfoCartPage .attributesList {
     position: relatIve;
-    width: 100%;
+    min-width: 100%;
+    width: auto;
     height: 45px;
     
     top: 58px;
@@ -91,6 +93,7 @@
 .cartInfoCartPage .attributesList .attribute {
     position: relative;
     min-width: 63px;
+    width: auto;
     height: 45px;
 
     padding: 0px;

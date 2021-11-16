@@ -4,7 +4,10 @@
 .cartInfoMenu {
     position: relative;
     height: 100%;
-    width: 136px;
+    min-width: 136px;
+    width: auto;
+    left: 0px;
+    top: 0px;
 
     display: flex;
     flex-direction: column;
@@ -74,7 +77,8 @@
 
 .cartInfoMenu .attributesList {
     position: relative;
-    width: 100%;
+    min-width: 100%;
+    width: auto;
     height: 24px;
     
     left: 0px;
@@ -91,9 +95,10 @@
 
 .cartInfoMenu .attributesList .attribute {
     position: relative;
-    min-width: 24px;
+    min-width: 20px;
+    width: auto;
     height: 24px;
-    padding: 0px;
+    padding: 0px 2px;
     margin: 0px 8px 0px 0px;
 
     font-family: Source Sans Pro;
