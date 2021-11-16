@@ -2,11 +2,12 @@ version: '3.5'
 
 services:
 
-    react-endpoint:
-        build: ./junior-react-endpoint
-        ports:
-            - "4000:4000"
-        container_name: react-endpoint
+    ### Replace Backend here !!! ###
+    # react-endpoint:
+    #     build: ./junior-react-endpoint
+    #     ports:
+    #         - "4000:4000"
+    #     container_name: react-endpoint
 
     main-app-prod:
         build:
@@ -19,15 +20,3 @@ services:
         ports:
             - "3000:3000"
         container_name: react-task-main-app-prod
-
-    main-app-tests:
-        build:
-            context: ./react-app-task
-            dockerfile: Dockerfile.test
-        environment:
-            - REACT_APP_ENDPOINT=
-        ports:
-            - "8080:8080"
-        container_name: react-task-main-app-tests
-
-
