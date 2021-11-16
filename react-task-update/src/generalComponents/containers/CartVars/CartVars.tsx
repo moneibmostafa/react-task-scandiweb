@@ -13,17 +13,17 @@ interface ICartVarsContainerProps {
 
 class CartVarsContainer extends Component<ICartVarsContainerProps> {
     handleCountChange = (e: any) => {
-        const { name } = this.props.cartItem.item;
+        const { id } = this.props.cartItem.item;
         const { selectedAttribute } = this.props.cartItem;
         const countShift = e.target.innerHTML === '+' ? 1 : -1
-        this.props.changeItemCount(countShift, name, selectedAttribute)
+        this.props.changeItemCount(countShift, id, selectedAttribute)
     }
 
     handleChangeImage = (e: any) => {
-        const { name } = this.props.cartItem.item;
+        const { id } = this.props.cartItem.item;
         const { selectedAttribute } = this.props.cartItem;
         const imageShift = e.target.className === 'imgRightArrow' ? 1 : -1
-        this.props.changeItemCartImage(imageShift, name, selectedAttribute)
+        this.props.changeItemCartImage(imageShift, id, selectedAttribute)
     }
 
     render(): JSX.Element {

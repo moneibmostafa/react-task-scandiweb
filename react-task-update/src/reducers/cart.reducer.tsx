@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { navbarConstants, cartConstants } from '../constants'
+import { cartConstants } from '../constants'
 import { cartState } from '../interfaces'
 
 const initialState: cartState = {
@@ -12,10 +12,10 @@ export function cart(state = initialState, action: AnyAction) {
   let productFound: number
   switch (action.type) {
     //////////////////// ADD TO CART //////////////////
-    case navbarConstants.ADD_TO_CART:
+    case cartConstants.ADD_TO_CART:
       productFound = state.cartItems.findIndex((obj) => {
         return (
-          obj.item.name === action.item.name
+          obj.item.id === action.item.id
           && obj.selectedAttribute === action.selectedAttribute
         )
       })
@@ -40,7 +40,7 @@ export function cart(state = initialState, action: AnyAction) {
     case cartConstants.CHANGE_ITEM_COUNT:
       productFound = state.cartItems.findIndex((obj) => {
         return (
-          obj.item.name === action.itemName
+          obj.item.id === action.itemID
           && obj.selectedAttribute === action.selectedAttribute
         )
       })
@@ -57,7 +57,7 @@ export function cart(state = initialState, action: AnyAction) {
     case cartConstants.CHANGE_ITEM_CART_IMAGE:
       productFound = state.cartItems.findIndex((obj) => {
         return (
-          obj.item.name === action.itemName
+          obj.item.id === action.itemID
           && obj.selectedAttribute === action.selectedAttribute
         )
       })

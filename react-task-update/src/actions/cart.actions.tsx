@@ -22,23 +22,23 @@ function addToCart(item: any, selectedAttribute: string) {
   }
 }
 
-function changeItemCount(count: number, itemName: string, selectedAttribute: string) {
+function changeItemCount(count: number, itemID: string, selectedAttribute: string) {
   return (dispatch: AppDispatch) => {
     dispatch({
       type: cartConstants.CHANGE_ITEM_COUNT,
       count,
-      itemName,
+      itemID,
       selectedAttribute,
     })
   }
 }
 
-function changeItemCartImage(image: number, itemName: string, selectedAttribute: string) {
+function changeItemCartImage(image: number, itemID: string, selectedAttribute: string) {
   return (dispatch: AppDispatch) => {
     dispatch({
       type: cartConstants.CHANGE_ITEM_CART_IMAGE,
       image,
-      itemName,
+      itemID,
       selectedAttribute,
     })
   }
