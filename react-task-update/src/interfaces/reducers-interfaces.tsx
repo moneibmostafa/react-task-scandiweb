@@ -4,7 +4,7 @@ export interface cartItemsObjs {
   item: IProduct
   image: number
   count: number
-  selectedAttribute: ''
+  selectedAttribute: {}
 }
 
 export interface cartState {

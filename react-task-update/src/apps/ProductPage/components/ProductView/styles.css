@@ -40,6 +40,28 @@
     object-fit: contain;
 }
 
+.productView .mainImage .outOfStockBanner {
+    position: absolute;
+    height: 39px;
+    width: 173px;
+    top: 230px;
+  
+    margin: 0px 106px 0px 107px;
+    padding: 0px;
+  
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 160%;
+  
+    display: flex;
+    align-items: center;
+  
+    color: #8D8F9A;
+    opacity: 0.5;
+  }
+
 .productView .info {
     position: relative;
     width: auto;
@@ -58,7 +80,7 @@
 
 .productView .info .brand {
     position: relative;
-    width: 292px;
+    width: 100%;
     height: 27px;
     left: 0px;
     top: 0px;
@@ -80,7 +102,7 @@
 
 .productView .info .name {
     position: relative;
-    width: 292px;
+    width: 100%;
     height: 27px;
     left: 0px;
     top: 16px;
@@ -100,12 +122,37 @@
     color: #1D1F22;
 }
 
-.productView .info .attributeName {
+.productView .info .attributes {
     position: relative;
-    width: 38px;
+    width: auto;
+    height: auto;
+    top: 68px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.productView .info .attributes .attributesBox {
+    position: relative;
+    width: auto;
+    height: auto;
+
+    top: auto;
+    left: 0px;
+
+    padding: 0px;
+    margin: 0px 0px 25px 0px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.productView .info .attributes .attributesBox .attributeName {
+    position: relative;
+    width: auto;
     height: 18px;
     left: 0px;
-    top: 59px;
 
     margin: 0px;
     padding: 0px;
@@ -125,11 +172,12 @@
     color: #1D1F22;
 }
 
-.productView .info .attributesBox {
+
+.productView .info .attributes .attributesBox .attributesValues {
     position: relative;
-    height: 45px;
+    height: auto;
     width: auto;
-    top: 67px;
+    top: 8px;
 
     margin: 0px;
     padding: 0px;
@@ -139,12 +187,11 @@
     align-items: flex-start;
 }
 
-.productView .info .attributesBox .attribute {
+
+.productView .info .attributes .attributesBox .attributesValues .attributeLabel {
     position: relative;
     min-width: 63px;
     height: 45px;
-    top: 0px;
-    bottom: 0px;
 
     font-family: Source Sans Pro;
     font-style: normal;
@@ -165,18 +212,19 @@
     box-sizing: border-box;
 }
 
-.productView .info .attributesBox .selectedAttribute {
+
+.productView .info .attributes .attributesBox .attributesValues .selectedAttribute {
     background: #1D1F22;
     color: #FFFFFF;
 }
 
-.productView .info .attributesBox div:hover {
+.productView .info .attributes .attributesBox .attributesValues div:hover {
     cursor: pointer;
 }
 
 .productView .info .priceTag {
     position: relative;
-    width: 50px;
+    width: 100%;
     height: 18px;
     left: 0px;
     top: 107px;
@@ -198,7 +246,7 @@
 
 .productView .info .price {
     position: relative;
-    width: 86px;
+    width: 100%;
     height: 46px;
     left: 0px;
     top: 117px;
@@ -240,6 +288,11 @@
     
     background: #5ECE7B;
     border: 0px;
+}
+
+.productView .info .outOfStock {
+    background: grey;
+    color: #FFFFFF;
 }
 
 .productView .info .addToCart:hover {

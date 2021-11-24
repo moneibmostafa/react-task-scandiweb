@@ -2,6 +2,7 @@
 
 .CartPage {
     position: absolute;
+    height: auto;
     top: 80px;
     left: 100px;
     bottom: 54px;
@@ -29,6 +30,7 @@
 .CartPage .CartItems {
     position: relative;
     min-width: 1097px;
+    height: auto;
     top: 100px;
     left: 0px;
     padding: 0px 0px 191px 0px;
@@ -39,9 +41,12 @@
 
 .CartPage .CartItems .item {
     position: relative;
-    width: 100%;
-    height: 226px;
     left: 0px;
+    width: 100%;
+    min-height: 226px;
+    height: auto;
+
+    margin-bottom: 20px;
 
     display: inline-flex;
     flex-direction: row;

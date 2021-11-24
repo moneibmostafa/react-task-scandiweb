@@ -1,21 +1,36 @@
 .cartVarsCartPage {
     position: relative;
-    height: 100%;
+    height: auto;
     width: 198px;
 
-    top: 0px;
+    top: 10px;
     right: 0;
     bottom: 0px;
+    order: 2;
     margin-left: auto;
+
+    display: flex;
+    align-items: center;
 }
 
-.cartVarsCartPage .plusSign {
+.cartVarsCartPage .cartVarsBlock {
+    position: relative;
+    height: 185px;
+    width: 100%;
+
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.cartVarsCartPage .cartVarsBlock .plusSign {
     position: relative;
     width: 45px;
     height: 45px;
 
     left: 0px;
-    top: 20px;
+    top: 0px;
 
     display: flex;
     justify-content: center;
@@ -26,16 +41,16 @@
     box-sizing: border-box;
 }
 
-.cartVarsCartPage .plusSign:hover {
+.cartVarsCartPage .cartVarsBlock .plusSign:hover {
     cursor: pointer;
 }
 
-.cartVarsCartPage .negSign {
+.cartVarsCartPage .cartVarsBlock .negSign {
     position: relative;
     width: 45px;
     height: 45px;
 
-    top: 114px;
+    top: 60px;
     left: 0px;
 
     display: flex;
@@ -47,15 +62,15 @@
     box-sizing: border-box;
 }
 
-.cartVarsCartPage .negSign:hover {
+.cartVarsCartPage .cartVarsBlock .negSign:hover {
     cursor: pointer;
 }
 
-.cartVarsCartPage .count {
+.cartVarsCartPage .cartVarsBlock .count {
     position: relative;
     left: 16px;
     right: 123px;
-    top: 0px;
+    top: 30px;
 
     width: 10px;
     height: 34px;
@@ -76,12 +91,12 @@
     color: #1D1F22;
 }
 
-.cartVarsCartPage .mainImage {
+.cartVarsCartPage .cartVarsBlock .mainImage {
     position: absolute;
     width: 141px;
     height: 185px;
     right: 0px;
-    top: 20px;
+    top: 0px;
     bottom: 0px;
 
     display: flex;
@@ -89,14 +104,14 @@
     align-items: center;
 }
 
-.cartVarsCartPage .mainImage img {
+.cartVarsCartPage .cartVarsBlock .mainImage img {
     position: relative;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-.cartVarsCartPage .mainImage .imgLeftArrow {
+.cartVarsCartPage .cartVarsBlock .mainImage .imgLeftArrow {
     position: absolute;
     width: 24px;
     height: 24px;
@@ -114,11 +129,11 @@
     z-index: 100;
 }
 
-.cartVarsCartPage .mainImage .imgLeftArrow:hover {
+.cartVarsCartPage .cartVarsBlock .mainImage .imgLeftArrow:hover {
     cursor: pointer;
 }
 
-.cartVarsCartPage .mainImage .imgRightArrow {
+.cartVarsCartPage .cartVarsBlock .mainImage .imgRightArrow {
     position: absolute;
     width: 24px;
     height: 24px;
@@ -136,6 +151,6 @@
     z-index: 100;
 }
 
-.cartVarsCartPage .mainImage .imgRightArrow:hover {
+.cartVarsCartPage .cartVarsBlock .mainImage .imgRightArrow:hover {
     cursor: pointer;
 }

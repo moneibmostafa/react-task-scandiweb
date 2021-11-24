@@ -1,9 +1,20 @@
 .cartVarsMenu {
     position: relative;
-    height: 100%;
+    height: auto;
     width: 140px;
 
     top: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.cartVarsCartPage .cartVarsBlock {
+    position: relative;
+    height: 185px;
+    width: 100%;
+
+    top: 0px;
+    left: 0px;
     right: 0px;
     bottom: 0px;
 }
@@ -48,7 +59,7 @@
     position: absolute;
     left: 8px;
     right: 123px;
-    top: 54px;
+    top: calc(50% - 13px);
     bottom: 57px;
 
     width: 9px;
@@ -71,7 +82,7 @@
 .cartVarsMenu .mainImage {
     position: absolute;
     width: 105px;
-    height: 137px;
+    height: 100%;
     right: 0px;
     top: 0px;
     bottom: 0px;

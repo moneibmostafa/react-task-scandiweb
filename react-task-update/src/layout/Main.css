@@ -27,6 +27,11 @@
     background: rgba(57, 55, 72, 0.22);
 }
 
+.disabled img {
+    opacity: 20%;
+    filter: brightness(80%);
+}
+
 .footer {
     position: fixed;
     width: 100%;

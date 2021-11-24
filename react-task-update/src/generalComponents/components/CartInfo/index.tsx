@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { cartItemsObjs, items } from '../../../interfaces';
+import { cartItemsObjs, items, attributes } from '../../../interfaces';
 
 interface ICartInfoProps {
     cartItem: cartItemsObjs,
@@ -9,6 +9,20 @@ interface ICartInfoProps {
 }
 
 export default class CartInfo extends Component<ICartInfoProps> {
+    attributeValueFound = (selectedAttributes: any, attributeName: string, attributeValue: string) => {
+        if (!attributeName
+            || !attributeValue
+            || !selectedAttributes
+        ) return false;
+
+        if (selectedAttributes[attributeName]
+            && selectedAttributes[attributeName] === attributeValue
+        ) {
+            return true;
+        };
+        return false;
+    }
+
     render(): JSX.Element {
         const {
             cartItem,
@@ -16,12 +30,7 @@ export default class CartInfo extends Component<ICartInfoProps> {
             currencySymbol,
             amount
         } = this.props;
-        const { items: attributeItems } : any = cartItem
-            && cartItem.item
-            && cartItem.item.attributes
-            && cartItem.item.attributes.length !== 0
-            && cartItem.item.attributes[0].items.length !== 0
-            && cartItem.item.attributes[0]
+
         const cartInfoClassName = type === 'menu'
             ? 'cartInfoMenu'
             : 'cartInfoCartPage';
@@ -30,6 +39,11 @@ export default class CartInfo extends Component<ICartInfoProps> {
             item,
             selectedAttribute,
         } = cartItem;
+
+        const { attributes: cartItemAttributes } : any = 
+        cartItem
+        && cartItem.item;
+
         return(
             <div className={cartInfoClassName}>
                 <div className='brand'>
@@ -41,7 +55,51 @@ export default class CartInfo extends Component<ICartInfoProps> {
                 <label className='price'>
                     {`${currencySymbol}${amount}`}
                 </label>
-                {attributeItems 
+                {cartItemAttributes
+                && cartItemAttributes.length !== 0
+                && <div className='attributesList'>
+                    {cartItemAttributes.map((attribute: attributes, index: number) => {
+                        return (
+                            <div key={index} className='attributesBox'>
+                                {attribute.items
+                                && attribute.items.length !== 0
+                                && attribute.items.map((attributeItem: items, index: number) => {
+                                    const attributeClassName =
+                                        this.attributeValueFound(
+                                            selectedAttribute,
+                                            attribute.name,
+                                            attributeItem.value,
+                                        )
+                                        ? 'attribute selectedAttribute'
+                                        : 'attribute';
+                                    const style =
+                                        attribute.type === 'swatch'
+                                        ? {background: attributeItem.value}
+                                        : {undefined};
+                                    const attributeValue =
+                                        attribute.type === 'swatch'
+                                        ? ''
+                                        : attributeItem.value
+                                    return (
+                                        <div 
+                                            key={index} 
+                                            className={attributeClassName}
+                                            style={style}
+                                        >
+                                            {attributeValue}
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        )
+                    })}
+
+                </div>
+
+                }
+
+
+                {/* {attributeItems 
                 && <div className='attributesList'>{
                     attributeItems.map((attribute: items, index: any) => {
                         const attributeClassName =
@@ -50,7 +108,7 @@ export default class CartInfo extends Component<ICartInfoProps> {
                             : 'attribute selectedAttribute'
                         return <div key={index} className={attributeClassName}>{attribute.value}</div>
                     })
-                }</div>}
+                }</div>} */}
             </div>
         )
     }

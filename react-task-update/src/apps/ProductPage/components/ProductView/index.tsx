@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { IProduct } from '../../../../interfaces';
+import { IProduct, attributes, items } from '../../../../interfaces';
 import './styles.css';
 
 interface IProductViewProps {
@@ -13,28 +13,42 @@ interface IProductViewProps {
 }
 
 export default class ProductView extends Component<IProductViewProps> {
-    renderAttribute = (attributeValue: string, index: any, attributeClassName: any, selectAttribute: any) => {
-        if (attributeValue.charAt(0) === '#') {
-            return (
-                <div 
-                    key={index}
-                    id={attributeValue}
-                    className={attributeClassName}
-                    onClick={selectAttribute}
-                    style={{ background: attributeValue}}
-                />
-            )
-        }
+    renderAttribute = (index: number, attribute: items, type: string, attributeName: string, attributeClassName: any, selectAttribute: any) => {
+        const style =
+            type === 'swatch'
+            ? {background: attribute.value}
+            : {undefined};
+
+        const attributeValue =
+            type === 'swatch'
+            ? ''
+            : attribute.value
+
         return (
             <div 
                 key={index}
-                id={attributeValue}
+                id={`${attributeName}-${attribute.value}`}
                 className={attributeClassName}
                 onClick={selectAttribute}
+                style={style}
             >
                 {attributeValue}
             </div>
         )
+    }
+
+    attributeValueFound = (selectedAttributes: any, attributeName: string, attributeValue: string) => {
+        if (!attributeName
+            || !attributeValue
+            || !selectedAttributes
+        ) return false;
+
+        if (selectedAttributes[attributeName]
+            && selectedAttributes[attributeName] === attributeValue
+        ) {
+            return true;
+        };
+        return false;
     }
 
     render(): JSX.Element {
@@ -56,9 +70,22 @@ export default class ProductView extends Component<IProductViewProps> {
 
         const addToCartClassName = 
             addToCartBoolean
+            && Object.keys(selectedAttribute).length === product.attributes.length
             ? 'addToCart active'
-            : 'addToCart';
+            : product.inStock 
+            ? 'addToCart'
+            : 'addToCart outOfStock';
 
+        const addToCartButtonClick =
+            addToCartBoolean
+            ? addToCart
+            : undefined;
+
+        const addToCartText = 
+            product.inStock
+            ? 'add to cart'
+            : 'out of stock';
+            
         const {
             brand: productBrand,
             name: productName,
@@ -69,34 +96,49 @@ export default class ProductView extends Component<IProductViewProps> {
         return(
             <div className='productView'>
                 <div className='mainImage'>
+                    {!product.inStock && <div className='outOfStockBanner'>OUT OF STOCK</div>}
                     <img src={selectedImage || product.gallery[0]} alt="main"/>
                 </div>
                 <div className='info'>
                     <div className='brand'>{productBrand}</div>
                     <div className='name'>{productName}</div>
-                    <div className='attributeName'>
-                        {(productAttributes[0] && productAttributes[0].name + ':') || ''}
-                    </div>
-                    <div className='attributesBox'>
-                        {productAttributes[0]
-                        && productAttributes[0].items.map((attribute: any, index: number) => {
-                            const attributeClassName = 
-                                selectedAttribute === attribute.value
-                                ? 'attribute selectedAttribute'
-                                : 'attribute';
+                    <div className='attributes'>
+                        {productAttributes.map((attribute: attributes, index: number) => {
                             return (
-                                this.renderAttribute(
-                                    attribute.value,
-                                    index,
-                                    attributeClassName,
-                                    selectAttribute
-                                )
+                                <div key={index} className='attributesBox'>
+                                    <div className='attributeName'>
+                                        {(attribute && attribute.name + ':') || ''}
+                                    </div>
+                                    <div className='attributesValues'>
+                                        {attribute
+                                        && attribute.items.map((attr: items, index: number) => {
+                                            const attributeClassName =
+                                                this.attributeValueFound(
+                                                    selectedAttribute,
+                                                    attribute.name,
+                                                    attr.value
+                                                )
+                                                ? 'attributeLabel selectedAttribute'
+                                                : 'attributeLabel';
+                                            return (
+                                                this.renderAttribute(
+                                                    index,
+                                                    attr,
+                                                    attribute.type,
+                                                    attribute.name,
+                                                    attributeClassName,
+                                                    selectAttribute
+                                                )
+                                            )
+                                        })}
+                                    </div>
+                                </div>
                             )
                         })}
                     </div>
                     <div className='priceTag'>price:</div>
                     <div className='price'>{currencySymbol}{amount}</div>
-                    <button className={addToCartClassName} onClick={addToCart}>add to cart</button>
+                    <button className={addToCartClassName} onClick={addToCartButtonClick}>{addToCartText}</button>
                     <div className='description' dangerouslySetInnerHTML={{ __html: productDescription }} />
                 </div>
             </div>

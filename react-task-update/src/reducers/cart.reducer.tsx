@@ -16,7 +16,7 @@ export function cart(state = initialState, action: AnyAction) {
       productFound = state.cartItems.findIndex((obj) => {
         return (
           obj.item.id === action.item.id
-          && obj.selectedAttribute === action.selectedAttribute
+          && JSON.stringify(obj.selectedAttribute) === JSON.stringify(action.selectedAttribute)
         )
       })
       if (productFound > -1) state.cartItems[productFound].count++

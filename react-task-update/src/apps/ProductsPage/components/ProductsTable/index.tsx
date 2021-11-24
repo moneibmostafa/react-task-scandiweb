@@ -8,11 +8,12 @@ interface IProductsTableProps {
     selectProduct(e: any): any,
     selectedCurrency: string | undefined,
     addToCart: any,
+    cartMenuToggle: any,
 }
 
 export default class ProductsTable extends Component<IProductsTableProps> {
     render(): JSX.Element {
-        const { products } = this.props;
+        const { products, cartMenuToggle } = this.props;
         return(
             <div className="grid-container">
                 {(products && 
@@ -25,6 +26,7 @@ export default class ProductsTable extends Component<IProductsTableProps> {
                                     selectProduct={this.props.selectProduct}
                                     selectedCurrency={this.props.selectedCurrency}
                                     addToCart={this.props.addToCart}
+                                    cartMenuToggle = { cartMenuToggle }
                                 />
                             </div>
                         )

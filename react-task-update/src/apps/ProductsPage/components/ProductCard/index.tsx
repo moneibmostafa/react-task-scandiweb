@@ -10,6 +10,7 @@ interface IProductCardProps {
     amount: any,
     selectProduct(e: any): any,
     addToCart: any,
+    cartMenuToggle: any,
 }
 
 export default class ProductCard extends Component<IProductCardProps> {
@@ -19,6 +20,7 @@ export default class ProductCard extends Component<IProductCardProps> {
             currencySymbol,
             amount,
             addToCart,
+            cartMenuToggle
         } = this.props;
         const cardTitleClassName =
             product.inStock
@@ -38,6 +40,12 @@ export default class ProductCard extends Component<IProductCardProps> {
             name: productName,
             brand: productBrand,
         } = product;
+
+        const cardImageClassName =
+            cartMenuToggle
+            ? 'cardImage disabled'
+            : 'cardImage';
+
         return(
             <div
                 className="card"
@@ -45,7 +53,7 @@ export default class ProductCard extends Component<IProductCardProps> {
                 onClick={(e) => this.props.selectProduct(e)}
             >
                 <div
-                    className='cardImage'
+                    className={cardImageClassName}
                     id={`${productID}`}
                     onClick={(e) => this.props.selectProduct(e)}
                 >

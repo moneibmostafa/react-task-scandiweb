@@ -1,12 +1,13 @@
 import { Component } from 'react';
 import { connect } from "react-redux";
 import { homepageActions, cartActions } from '../../../actions';
-import { IHomepageState } from '../../../interfaces';
+import { IHomepageState, navbarState } from '../../../interfaces';
 
 import ProductsTable from '../components/ProductsTable';
 
 interface IProductsTableContainerProps {
     homepage: IHomepageState,
+    navbar: navbarState,
     handleProductSelection: any,
     addToCart: any,
 }
@@ -28,20 +29,22 @@ class ProductsTableContainer extends Component<IProductsTableContainerProps> {
 
     render(): JSX.Element {
         const { filteredProducts, selectedCurrency } = this.props.homepage;
+        const { cartMenuToggle } = this.props.navbar;
         return(
             <ProductsTable 
                 products = { filteredProducts }
                 selectedCurrency = { selectedCurrency }
                 selectProduct = { this.selectProduct }
                 addToCart={ this.addToCart }
+                cartMenuToggle = { cartMenuToggle }
             />
         )
     }
 }
 
 function mapState(state: any) {
-    const { homepage } = state;
-    return { homepage };
+    const { homepage, navbar } = state;
+    return { homepage, navbar };
 }
   
 const actionCreators = {

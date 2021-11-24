@@ -21,6 +21,7 @@ export default class CartVars extends Component<ICartVarsProps> {
             count,
             image,
         } = cartItem;
+        const { gallery } = item;
         const cartVarsClassName =
             type === 'menu'
             ? 'cartVarsMenu'
@@ -31,20 +32,24 @@ export default class CartVars extends Component<ICartVarsProps> {
             : image;
         return(
             <div className={cartVarsClassName}>
-                <div className='plusSign' onClick={handleCountChange}>+</div>
-                <div className='negSign' onClick={handleCountChange}>-</div>
-                <label className='count'>{count}</label>
-                <div className='mainImage'>
-                    <img  
-                        src={item.gallery[imageIndex]} 
-                        alt='mainImage'
-                    />
-                    {type === 'cartPage'
-                        && <div className='imgRightArrow' onClick={handleChangeImage}>{'>'}</div>
-                    }
-                    {type === 'cartPage'
-                        && <div className='imgLeftArrow' onClick={handleChangeImage}>{'<'}</div>
-                    }
+                <div className='cartVarsBlock'>
+                    <div className='plusSign' onClick={handleCountChange}>+</div>
+                    <label className='count'>{count}</label>
+                    <div className='negSign' onClick={handleCountChange}>-</div>
+                    <div className='mainImage'>
+                        <img  
+                            src={gallery[imageIndex]} 
+                            alt='mainImage'
+                        />
+                        {type === 'cartPage'
+                            && gallery.length > 1
+                            && <div className='imgRightArrow' onClick={handleChangeImage}>{'>'}</div>
+                        }
+                        {type === 'cartPage'
+                            && gallery.length > 1
+                            && <div className='imgLeftArrow' onClick={handleChangeImage}>{'<'}</div>
+                        }
+                    </div>
                 </div>
             </div>
         )

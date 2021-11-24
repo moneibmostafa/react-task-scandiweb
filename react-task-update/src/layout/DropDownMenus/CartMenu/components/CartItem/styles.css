@@ -2,7 +2,7 @@
     position: relative;
     min-width: 100%;
     width: auto;
-    height: 137px;
+    min-height: 137px;
     
     margin: 0px 0px 44px 0px;
     padding: 0px;

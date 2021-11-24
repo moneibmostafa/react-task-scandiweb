@@ -10,12 +10,13 @@ interface IProductsCardContainerProps {
     selectProduct(e: any): any,
     selectedCurrency: string | undefined,
     addToCart: any,
+    cartMenuToggle: any,
 }
 
 export default class ProductsCardContainer extends Component<IProductsCardContainerProps> {
 
     render(): JSX.Element | null {
-        const { product } = this.props;
+        const { product, cartMenuToggle } = this.props;
         if (!product) return null;
         const { prices: productPrices } = product;
         const currencySymbol = getCurrencySymbol(this.props.selectedCurrency, productPrices[0].currency);
@@ -30,6 +31,7 @@ export default class ProductsCardContainer extends Component<IProductsCardContai
                 amount = {amount}
                 selectProduct = {this.props.selectProduct}
                 addToCart = {this.props.addToCart}
+                cartMenuToggle = { cartMenuToggle }
             />
         )
     }

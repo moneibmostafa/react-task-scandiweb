@@ -22,12 +22,17 @@ class ProductPageContainer extends Component<ProductPageProps> {
     }
 
     state = {
-        selectedAttribute: '',
+        selectedAttribute: {},
         selectedImage: ''
     }
 
     selectAttribute = (e: any) => {
-        this.setState({ selectedAttribute: e.target.id });
+        const _ = e.target.id.indexOf('-')
+        const attributeName = e.target.id.substr(0, _);
+        const attributeValue = e.target.id.substr(_ + 1, e.target.id.length);
+        const { selectedAttribute } : any = this.state;
+        selectedAttribute[attributeName] = attributeValue;
+        this.setState({ selectedAttribute: selectedAttribute });
     }
 
     selectImage = (e: any) => {
@@ -36,9 +41,14 @@ class ProductPageContainer extends Component<ProductPageProps> {
 
     addToCart = () => {
         const { activeProduct } = this.props.homepage;
-        if (activeProduct && activeProduct.attributes[0] && !this.state.selectedAttribute) return;
+        const { selectedAttribute } = this.state;
+        if (
+            activeProduct
+            && activeProduct.attributes
+            && activeProduct.attributes.length !== Object.keys(selectedAttribute).length
+        ) return;
         if (activeProduct && !activeProduct.inStock) return;
-        else this.props.addToCart(activeProduct, this.state.selectedAttribute);
+        this.props.addToCart(activeProduct, selectedAttribute);
     }
 
     render(): JSX.Element {
