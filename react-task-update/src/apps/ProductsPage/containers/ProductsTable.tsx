@@ -22,7 +22,7 @@ class ProductsTableContainer extends Component<IProductsTableContainerProps> {
         const { filteredProducts } = this.props.homepage;
         const selectedProduct = filteredProducts.filter((product) => product.id === id);
         if (selectedProduct.length !== 0) {
-            this.props.addToCart(selectedProduct[0], undefined);
+            this.props.addToCart(selectedProduct[0], {});
         }
         return;
     }

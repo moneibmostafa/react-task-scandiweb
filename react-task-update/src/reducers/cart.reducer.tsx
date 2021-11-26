@@ -26,7 +26,7 @@ export function cart(state = initialState, action: AnyAction) {
           {
             item: action.item,
             count: 1,
-            selectedAttribute: action.selectedAttribute,
+            selectedAttribute: { ...action.selectedAttribute },
             image: 0
           },
         ]

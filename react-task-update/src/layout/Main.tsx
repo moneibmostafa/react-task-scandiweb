@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-// import { homepageActions } from '../actions'
 import { NavigationBar } from './Header'
 import { FullPageLoader } from './FullPageLoader'
 import { navbarState } from '../interfaces'
@@ -11,18 +10,9 @@ import './Main.css'
 interface IMainLayoutProps {
   navbar: navbarState
   children: any
-  // getCurrencies: any
-  // getProductsTable: any
-  // restoreCart: any
 }
 
 class MainLayout extends Component<IMainLayoutProps> {
-  // async componentDidMount() {
-  //   await this.props.getCurrencies()
-  //   await this.props.getProductsTable('')
-  //   await this.props.restoreCart()
-  // }
-
   render(): JSX.Element {
     const { cartMenuToggle } = this.props.navbar
     const childrenClassName = cartMenuToggle ? 'children disabled' : 'children';
@@ -45,11 +35,7 @@ function mapState(state: any) {
   return { navbar }
 }
 
-const actionCreators = {
-  // getCurrencies: homepageActions.getCurrencies,
-  // getProductsTable: homepageActions.getProductsTable,
-  // restoreCart: homepageActions.restoreCart,
-}
+const actionCreators = {}
 
 const connectedMainLayout = connect(mapState, actionCreators)(MainLayout)
 export { connectedMainLayout as MainLayout }
