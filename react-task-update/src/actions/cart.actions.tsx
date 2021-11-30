@@ -1,5 +1,5 @@
 import { AppDispatch } from '../store'
-import { cartConstants, navbarConstants } from '../constants'
+import { cartConstants } from '../constants'
 import { history } from '../history'
 
 export const cartActions = {
@@ -15,9 +15,6 @@ function addToCart(item: any, selectedAttribute: string) {
       type: cartConstants.ADD_TO_CART,
       item,
       selectedAttribute,
-    })
-    dispatch({
-      type: navbarConstants.CART_MENU_TOGGLE,
     })
   }
 }

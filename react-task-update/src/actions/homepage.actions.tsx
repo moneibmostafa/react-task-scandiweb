@@ -5,6 +5,7 @@ import { history } from '../history'
 
 export const homepageActions = {
   getCurrencies,
+  getCategories,
   getProductsTable,
   getProduct,
   restoreCart,
@@ -36,7 +37,32 @@ function getCurrencies() {
   }
 }
 
+function getCategories() {
+  return async (dispatch: AppDispatch) => {
+    dispatch(request())
+    try {
+      const response = await homepageService.getCategories()
+      dispatch(success(response))
+    } catch (ex) {
+      dispatch(failure(ex.message))
+    }
+  }
+
+  function request() {
+    return { type: homepageConstants.GET_CATEGORIES_REQUEST }
+  }
+
+  function success(response: any) {
+    return { type: homepageConstants.GET_CATEGORIES_SUCCESS, response }
+  }
+
+  function failure(error: string) {
+    return { type: homepageConstants.GET_CATEGORIES_FAILURE, error }
+  }
+}
+
 function getProductsTable(title?: string) {
+  console.log('aaaaaaaaaaaaaaaaaaa', title)
   return async (dispatch: AppDispatch) => {
     dispatch(request())
     try {

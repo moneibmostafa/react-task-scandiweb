@@ -60,55 +60,44 @@ export default class CartInfo extends Component<ICartInfoProps> {
                 && <div className='attributesList'>
                     {cartItemAttributes.map((attribute: attributes, index: number) => {
                         return (
-                            <div key={index} className='attributesBox'>
-                                {attribute.items
-                                && attribute.items.length !== 0
-                                && attribute.items.map((attributeItem: items, index: number) => {
-                                    const attributeClassName =
-                                        this.attributeValueFound(
-                                            selectedAttribute,
-                                            attribute.name,
-                                            attributeItem.value,
+                            <div key={index} className='attributeObject'>
+                                <label className='attributeLabel'>{attribute.name}:</label>
+                                <div className='attributesBox'>
+                                    {attribute.items
+                                    && attribute.items.length !== 0
+                                    && attribute.items.map((attributeItem: items, index: number) => {
+                                        const attributeClassName =
+                                            this.attributeValueFound(
+                                                selectedAttribute,
+                                                attribute.name,
+                                                attributeItem.value,
+                                            )
+                                            ? 'attribute selectedAttribute'
+                                            : 'attribute';
+                                        const style =
+                                            attribute.type === 'swatch'
+                                            ? {background: attributeItem.value}
+                                            : {undefined};
+                                        const attributeValue =
+                                            attribute.type === 'swatch'
+                                            ? ''
+                                            : attributeItem.value
+                                        return (
+                                            <div 
+                                                key={index} 
+                                                className={attributeClassName}
+                                                style={style}
+                                            >
+                                                {attributeValue}
+                                            </div>
                                         )
-                                        ? 'attribute selectedAttribute'
-                                        : 'attribute';
-                                    const style =
-                                        attribute.type === 'swatch'
-                                        ? {background: attributeItem.value}
-                                        : {undefined};
-                                    const attributeValue =
-                                        attribute.type === 'swatch'
-                                        ? ''
-                                        : attributeItem.value
-                                    return (
-                                        <div 
-                                            key={index} 
-                                            className={attributeClassName}
-                                            style={style}
-                                        >
-                                            {attributeValue}
-                                        </div>
-                                    )
-                                })}
+                                    })}
+                                </div>
                             </div>
                         )
                     })}
-
                 </div>
-
                 }
-
-
-                {/* {attributeItems 
-                && <div className='attributesList'>{
-                    attributeItems.map((attribute: items, index: any) => {
-                        const attributeClassName =
-                            attribute.value !== selectedAttribute
-                            ? 'attribute'
-                            : 'attribute selectedAttribute'
-                        return <div key={index} className={attributeClassName}>{attribute.value}</div>
-                    })
-                }</div>} */}
             </div>
         )
     }

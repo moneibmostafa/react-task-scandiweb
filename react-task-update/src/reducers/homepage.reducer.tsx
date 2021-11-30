@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { homepageConstants } from '../constants'
-import { IHomepageState, IProduct } from '../interfaces'
+import { IHomepageState } from '../interfaces'
 
 const initialState: IHomepageState = {
   categories: [],
@@ -14,14 +14,6 @@ const initialState: IHomepageState = {
 
   loading: false,
   errors: {},
-}
-
-const filterProducts = (products: IProduct[], categoryName: string): IProduct[] => {
-  if (categoryName === 'all') return products
-  const filteredArray = products.filter(
-    (product: IProduct) => product.category === categoryName
-  )
-  return filteredArray
 }
 
 export function homepage(state = initialState, action: AnyAction) {
@@ -56,6 +48,31 @@ export function homepage(state = initialState, action: AnyAction) {
         loading: false,
       }
 
+    //////////////////// GET CURRENCIES ///////////////////
+    case homepageConstants.GET_CATEGORIES_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+    case homepageConstants.GET_CATEGORIES_SUCCESS:
+      const prevActiveCategory = localStorage.getItem('activeCategory');
+      let { categories } = action.response;
+      categories = categories.map((category: any) => category.name);
+      categories = ['all', ...categories];
+      const selectedCategory = prevActiveCategory ? prevActiveCategory : categories[0];
+      localStorage.setItem('activeCategory', selectedCategory);
+      return {
+        ...state,
+        categories: [...categories],
+        activeCategory: selectedCategory,
+      }
+    case homepageConstants.GET_CATEGORIES_FAILURE:
+      return {
+        ...state,
+        selectedCurrency: undefined,
+        loading: false,
+      }      
+
     //////////////////// GET PRODUCTS ///////////////////
     case homepageConstants.GET_PRODUCTS_REQUEST:
       return {
@@ -65,21 +82,10 @@ export function homepage(state = initialState, action: AnyAction) {
     case homepageConstants.GET_PRODUCTS_SUCCESS:
       const { products } = action.response.category
       if (products && products.length !== 0) {
-        const prevActiveCategory = localStorage.getItem('activeCategory')
-        let categories: string[]
-        let filteredProducts: IProduct[]
-        categories = Array.from(new Set(products.map((product: IProduct) => product.category)))
-        categories = ['all', ...categories]
-        const selectedCategory = prevActiveCategory ? prevActiveCategory : categories[0]
-        filteredProducts = filterProducts(products, selectedCategory)
-        localStorage.setItem('activeCategory', selectedCategory)
-
         return {
           ...state,
-          categories: [...categories],
-          activeCategory: selectedCategory,
           products: [...products],
-          filteredProducts: [...filteredProducts],
+          filteredProducts: [...products],
           loading: false,
         }
       }
@@ -121,9 +127,8 @@ export function homepage(state = initialState, action: AnyAction) {
     /////////////////// CHANGE CATEGORY //////////////////
     case homepageConstants.CHANGE_CATEGORY:
       const activeCategory = action.categoryName
-      const filteredProducts = filterProducts(state.products, activeCategory)
       localStorage.setItem('activeCategory', `${activeCategory}`)
-      return { ...state, activeCategory, filteredProducts }
+      return { ...state, activeCategory }
 
     ///////////////////// CART VIEW ////////////////////
     case homepageConstants.CART_VIEW:

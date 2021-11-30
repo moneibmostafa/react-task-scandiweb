@@ -13,7 +13,7 @@ import CartPage from '../CartPage';
 
 interface AppProps {
   getCurrencies: any
-  getProductsTable: any
+  getCategories: any
   restoreCart: any
 }
 
@@ -25,7 +25,7 @@ export class AppComponent extends Component<AppProps> {
 
   async componentDidMount() {
     await this.props.getCurrencies()
-    await this.props.getProductsTable('')
+    await this.props.getCategories()
     await this.props.restoreCart()
   }
 
@@ -65,7 +65,7 @@ function mapState(state: AppState) {
 
 const actionCreators = {
   getCurrencies: homepageActions.getCurrencies,
-  getProductsTable: homepageActions.getProductsTable,
+  getCategories: homepageActions.getCategories,
   restoreCart: homepageActions.restoreCart,
 };
 

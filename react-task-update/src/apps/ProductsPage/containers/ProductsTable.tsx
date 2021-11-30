@@ -8,13 +8,36 @@ import ProductsTable from '../components/ProductsTable';
 interface IProductsTableContainerProps {
     homepage: IHomepageState,
     navbar: navbarState,
+    getProducts: any,
     handleProductSelection: any,
     addToCart: any,
 }
 
 class ProductsTableContainer extends Component<IProductsTableContainerProps> {
+    async componentDidMount() {
+        const { activeCategory } = this.props.homepage;
+        if (!activeCategory) return;
+        const title =
+            activeCategory === 'all'
+            ? '' 
+            : activeCategory
+        await this.props.getProducts(title);
+    }
+
+    async componentDidUpdate(prevProps: IProductsTableContainerProps, prevState: any) {
+        const { activeCategory } = this.props.homepage;
+        if (prevProps.homepage.activeCategory !== activeCategory) {
+            const title =
+                activeCategory === 'all'
+                ? '' 
+                : activeCategory
+            await this.props.getProducts(title);
+        }
+    }
+
     selectProduct = (e: any) => {
         const { id } = e.target;
+        if (!id) return;
         this.props.handleProductSelection(id)
     }
 
@@ -48,6 +71,7 @@ function mapState(state: any) {
 }
   
 const actionCreators = {
+    getProducts: homepageActions.getProductsTable,
     handleProductSelection: homepageActions.getProduct,
     addToCart: cartActions.addToCart,
 };

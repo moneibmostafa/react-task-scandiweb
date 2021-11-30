@@ -2,12 +2,23 @@ import { getRequest } from '../queries'
 
 export const homepageService = {
   getCurrencies,
+  getCategories,
   getProductsTable,
   getProduct,
 }
 
 async function getCurrencies() {
   const query = `currencies`
+  const response = await getRequest(query)
+  return response
+}
+
+async function getCategories() {
+  const query = `
+      categories {
+        name
+      }
+    `
   const response = await getRequest(query)
   return response
 }
