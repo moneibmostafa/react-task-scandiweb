@@ -62,7 +62,6 @@ function getCategories() {
 }
 
 function getProductsTable(title?: string) {
-  console.log('aaaaaaaaaaaaaaaaaaa', title)
   return async (dispatch: AppDispatch) => {
     dispatch(request())
     try {
